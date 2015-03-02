@@ -1,0 +1,15 @@
+
+<h2>History</h2>
+<table class="table">
+	<th>To</th><th>From</th><th>Body</th><th>Created_at</th><th>Accepted_at</th><th>Status</th>
+	<% @messages.each do |m| %>
+ 		<tr>
+ 			<td><%=m.to%></td>
+			<td><%=m.from%></td>
+			<td><%=m.body[0..100]%><%="..." unless m.body.length < 100%></td>
+			<td><%=m.created_at.strftime('%Y-%m-%d %H:%M')%></td>
+			<td><%=m.accepted_at.strftime('%Y-%m-%d %H:%M') unless m.accepted_at.blank?%></td>
+			<td><%=m.status%></td>
+		</tr>
+  	<% end %>
+</table>

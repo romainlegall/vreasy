@@ -9,4 +9,21 @@ As you can see in the messages_controller.rb, we check at the opening the status
 
 When you create a new message, we send it to the Twilio API and save it into the `message` table in the database..
 
+=INSTALLATION
 
+* Clone the project on your computer 
+git clone https://github.com/romainlegall/vreasy.git
+
+* Install ruby and ruby on rails
+
+* Install Mysql
+
+* config the database.yml file in config folder with your database access
+
+* run '$ rake db:create' then '$ rake db:migrate' order to create the database and the tables
+
+* run '$ bundle' order to install gem 
+
+* and at last run '$ rails s -p 3000 -e development' order to start the project
+
+* enjoy 

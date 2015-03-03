@@ -1,9 +1,5 @@
 class MessagesController < ApplicationController
 
-	# Twilio configuration
-	$account_sid = 'ACb88d7015c3b1d42a1343125b0ab21508'
-	$auth_token = '14136e72b550b54502adc9612e7b1bec'
-
 	# index page
 	def index
 		@message = Message.new
@@ -20,7 +16,7 @@ class MessagesController < ApplicationController
 		@message.save		
 		index
 	end
-	
+
 
 	# check all messages informations
 	def check_msgs
@@ -33,6 +29,15 @@ class MessagesController < ApplicationController
 	end
 
 	private
+
+	# Twilio configuration
+	def account_sid 
+		'ACb88d7015c3b1d42a1343125b0ab21508'
+	end
+	def auth_token 
+		'14136e72b550b54502adc9612e7b1bec'
+	end
+
 	# params acceptable
 	def message_params
 		params.require(:message).permit(:from, :to, :body, :ref, :status, :sid)
@@ -41,7 +46,7 @@ class MessagesController < ApplicationController
 	#twilio calling for new message
 	def twilio_new_msg(p_from, p_to, p_body, p_ref)
 		begin
-			client = Twilio::REST::Client.new $account_sid, $auth_token
+			client = Twilio::REST::Client.new account_sid, auth_token
 			 
 			message = client.account.messages.create(
 				:body => p_body,
@@ -60,7 +65,7 @@ class MessagesController < ApplicationController
 
 		begin
 			# Get your Account Sid and Auth Token from twilio.com/user/account
-			client = Twilio::REST::Client.new $account_sid, $auth_token
+			client = Twilio::REST::Client.new account_sid, auth_token
 			 
 			# Get an object from its sid. If you do not have a sid,
 			# check out the list resource examples on this page

@@ -1,28 +1,12 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here is my app which connect to Twilio.
 
-Things you may want to cover:
+* send a message
+* show a log of messages
 
-* Ruby version
+As you can see in the messages_controller.rb, we check at the opening the status of every messages. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+When you create a new message, we send it to the Twilio API and save it into the `message` table in the database..
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

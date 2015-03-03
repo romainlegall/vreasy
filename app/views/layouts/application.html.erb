@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Vreasy</title>
-  <%= stylesheet_link_tag    'application', 'vreasy', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', 'vreasy', 'fuelux', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -10,8 +10,29 @@
   <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
-
-<%= yield %>
-
+<header id="header">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">
+          <%=image_tag "vreasy-logotype-dark.png"%>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <%= yield %>
+  <footer>
+    <p class="ar copyright pull-right">
+        <small>
+          &copy; Vreasy &trade; <%= Time.new.year %> version 1 - Development
+        </small>
+    </p>
+  </footer>
+</div>
 </body>
 </html>

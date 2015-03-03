@@ -1,4 +1,4 @@
-<div class="container">
+
   <h2>Create new message</h2>
   <p>Send a message with twilio</p>
     <%= form_for @message, :action => "create",  :remote => true do |f| %>
@@ -19,6 +19,7 @@
 
 <hr/>
 <div id="history">
+  <%= link_to "Check status", "check_msgs", :remote => true %>
+  <div class="infos">Done</div>
   <%= render :partial => "list"%>
-</div>
 </div>

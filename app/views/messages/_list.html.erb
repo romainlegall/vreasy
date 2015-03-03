@@ -9,7 +9,19 @@
 			<td><%=m.body[0..100]%><%="..." unless m.body.length < 100%></td>
 			<td><%=m.created_at.strftime('%Y-%m-%d %H:%M')%></td>
 			<td><%=m.accepted_at.strftime('%Y-%m-%d %H:%M') unless m.accepted_at.blank?%></td>
-			<td><%=m.status%></td>
+			<td>
+				<% if m.status.blank?%>
+					<div class="status failed">failed</div>
+				<%else%>
+					<% if m.status == "queued"%>
+						<div class="status success"><%=m.status%></div>
+					<% elsif m.status == "pending"%>
+						<div class="status pending"><%=m.status%></div>
+					<% else %>
+						<div class="status failed"><%=m.status%></div>
+					<% end %>
+				<%end %>
+			</td>
 		</tr>
   	<% end %>
 </table>
